@@ -1,3 +1,171 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+@import "lib/variables";
+@import "lib/mixins";
+
+
+.hero {
+  // border: 1px solid blue;
+  width: 100%;
+  height: 500px;
+  position: relative;
+  &-bg {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+  &-container {
+    // border: 1px solid red;
+    max-width: 1050px;
+    height: 100%;
+    margin: auto;
+    position: relative;
+    &-img {
+      position: absolute;
+      bottom: 70px;
+      right: 70px;
+      transition: $transition05;
+    }
+    &-img-me {
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: auto;
+      top: 15%;
+      display: none;
+      transition: $transition05;
+    }
+    &-info {
+      // border: 1px solid red;
+      position: absolute;
+      top: 125px;
+      left: 20px;
+      transition: $transition03;
+      h1 {
+        color: $color-secondary;
+        font-size: 50px;
+        font-weight: bold;
+        transition: $transition03;
+      }
+      h2 {
+        color: $color-secondary;
+        font-size: 25px;
+        font-weight: bold;
+        transition: $transition03;
+      }
+      .callToAction {
+        position: relative;
+        top: 25px;
+        left: -10px;
+        .button-primary {
+          @include button-primary;
+        }
+        .button-secondary {
+          @include button-secondary;
+        }
+      }
+    }
+  }
+}
+
+// MEDIA QUERYS HERO
+
+@media screen and (max-width: 768px) {
+  // TABLET 
+  .hero-container-info {
+    right: 0;
+    left: 0;
+    top: 78px;
+    text-align: center;
+    padding: 0 20px;
+    h1 {
+      font-size: 40px;
+    }
+    h2 {
+      font-size: 20px;
+    }
+  }
+  
+  .hero-container-img {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: 60px;
+    right: 0;
+    left: 0;
+    width: 280px;
+  }
+}
+
+
+@media screen and (max-width: 570px) {
+  // TABLET-MINI 
+  .hero-container-info {
+    h1 {
+      font-size: 30px;
+    }
+    h2 {
+      font-size: 16px;
+    }
+  }
+
+  .hero-container-info .callToAction {
+    .button-primary {
+      @include button-primary-small;
+    }
+    .button-secondary {
+      @include button-secondary-small;
+    }
+  }
+}
+
+
+@media screen and (max-width: 414px) {
+  // MOBILE
+  .hero {
+    height: 90vh;
+    &-container-img {
+      bottom: 30px;
+      width: 225px;
+    }
+    &-container-img-me {
+      display: block;
+    }
+    &-container-info {
+      top: 40%;
+      h1 {
+        font-size: 25px;
+      }
+      h2 {
+        font-size: 15px;
+        color: $color-gray-light;
+        padding: 0 50px;
+      }
+    }
+  }
+
+}
+
+
+@media screen and (max-width: 350px) {
+  .hero {
+    &-container-img {
+      display: none;
+      top: 30%;
+    }
+    &-container-info {
+      top: 50%;
+      h1 {
+        font-size: 20px;
+      }
+      h2 {
+        font-size: 15px;
+        color: $color-gray;
+        padding: 0 20px;
+      }
+    }
+  }
+}
